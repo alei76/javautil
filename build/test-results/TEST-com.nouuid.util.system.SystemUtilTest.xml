@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nouuid.util.system.SystemUtilTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-05-07T01:33:20" hostname="bl07637" time="0.011">
+  <properties/>
+  <testcase name="test" classname="com.nouuid.util.system.SystemUtilTest" time="0.011"/>
+  <system-out><![CDATA[10.45.17.121
+bl07637
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

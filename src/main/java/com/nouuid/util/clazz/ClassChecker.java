@@ -1,152 +1,207 @@
 package com.nouuid.util.clazz;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
-public interface ClassChecker {
+import java.lang.reflect.Modifier;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
 
-    /**
-     * 是否为基础类型
-     * @param clazz
-     * @return
-     */
-    public boolean isBoolean(Class<?> clazz);
-    public boolean isByte(Class<?> clazz);
-    public boolean isChar(Class<?> clazz);
-    public boolean isShort(Class<?> clazz);
-    public boolean isInt(Class<?> clazz);
-    public boolean isLong(Class<?> clazz);
-    public boolean isFloat(Class<?> clazz);
-    public boolean isDouble(Class<?> clazz);
+/**
+ * Created by nouuid on 2015/4/29.
+ */
+public class ClassChecker {
 
-    /**
-     * 是否为基础类型封装类
-     * @param clazz
-     * @return
-     */
-    public boolean isWrapBoolean(Class<?> clazz);
-    public boolean isWrapByte(Class<?> clazz);
-    public boolean isWrapChar(Class<?> clazz);
-    public boolean isWrapShort(Class<?> clazz);
-    public boolean isWrapInt(Class<?> clazz);
-    public boolean isWrapLong(Class<?> clazz);
-    public boolean isWrapFloat(Class<?> clazz);
-    public boolean isWrapDouble(Class<?> clazz);
+    protected final Log logger = LogFactory.getLog(getClass());
 
-    /**
-     * 是否为枚举
-     * @param clazz
-     * @return
-     */
-    public boolean isEnum(Class<?> clazz);
+    public static boolean isBoolean(Class<?> clazz) {
+        return boolean.class.equals(clazz);
+    }
 
-    /**
-     * 是否为基本类型（基础类型、基础类型封装类、String）
-     * @param clazz
-     * @return
-     */
-    public boolean isBasicType(Class<?> clazz);
+    public static boolean isByte(Class<?> clazz) {
+        return byte.class.equals(clazz);
+    }
 
-    /**
-     * 是否为基础类型封装类型
-     * @param clazz
-     * @return
-     */
-    public boolean isWrapClass(Class<?> clazz);
+    public static boolean isChar(Class<?> clazz) {
+        return char.class.equals(clazz);
+    }
 
-    /**
-     * 是否为String类型
-     * @param clazz
-     * @return
-     */
-    public boolean isString(Class<?> clazz);
+    public static boolean isShort(Class<?> clazz) {
+        return short.class.equals(clazz);
+    }
 
-    /**
-     * 是否为Date类型
-     * @param clazz
-     * @return
-     */
-    public boolean isDate(Class<?> clazz);
+    public static boolean isInt(Class<?> clazz) {
+        return int.class.equals(clazz);
+    }
 
-    /**
-     * 是否为BigInteger/BigDecimal类型
-     * @param clazz
-     * @return
-     */
-    public boolean isBigNumber(Class<?> clazz);
+    public static boolean isLong(Class<?> clazz) {
+        return long.class.equals(clazz);
+    }
 
-    /**
-     * 是否为BigDecimal类型
-     * @param clazz
-     * @return
-     */
-    public boolean isBigDecimal(Class<?> clazz);
+    public static boolean isFloat(Class<?> clazz) {
+        return float.class.equals(clazz);
+    }
 
-    /**
-     * 是否为BigInteger类型
-     * @param clazz
-     * @return
-     */
-    public boolean isBigInteger(Class<?> clazz);
+    public static boolean isDouble(Class<?> clazz) {
+        return double.class.equals(clazz);
+    }
 
-    /**
-     * 是否为自定义类型
-     * @param clazz
-     * @return
-     */
-    public boolean isCustom(Class<?> clazz);
+    public static boolean isWrapBoolean(Class<?> clazz) {
+        return Boolean.class.equals(clazz);
+    }
 
-    /**
-     * 是否为数组类型
-     * @param clazz
-     * @return
-     */
-    public boolean isArray(Class<?> clazz);
+    public static boolean isWrapByte(Class<?> clazz) {
+        return Byte.class.equals(clazz);
+    }
 
-    /**
-     * 是否为List类型
-     * @param clazz
-     * @return
-     */
-    public boolean isList(Class<?> clazz);
+    public static boolean isWrapChar(Class<?> clazz) {
+        return Character.class.equals(clazz);
+    }
 
-    /**
-     * 是否为Set类型
-     * @param clazz
-     * @return
-     */
-    public boolean isSet(Class<?> clazz);
+    public static boolean isWrapShort(Class<?> clazz) {
+        return Short.class.equals(clazz);
+    }
 
-    /**
-     * 是否为Map类型
-     * @param clazz
-     * @return
-     */
-    public boolean isMap(Class<?> clazz);
+    public static boolean isWrapInt(Class<?> clazz) {
+        return Integer.class.equals(clazz);
+    }
 
-    /**
-     * 数组、List、Set、Map
-     * @return
-     */
-    public boolean isCollection(Class<?> clazz);
+    public static boolean isWrapLong(Class<?> clazz) {
+        return Long.class.equals(clazz);
+    }
 
-    /**
-     * 获取泛型参数类型
-     * @param type 泛型类型
-     * @param i 参数列表编号
-     * @return
-     */
-//	public Class<?> getGenericParaClass(Type type, int i);
+    public static boolean isWrapFloat(Class<?> clazz) {
+        return Float.class.equals(clazz);
+    }
 
-    public boolean isBooleanCastableFrom(Class<?> srcClass);
-    public boolean isByteCastableFrom(Class<?> srcClass);
-    public boolean isCharCastableFrom(Class<?> srcClass);
-    public boolean isShortCastableFrom(Class<?> srcClass);
-    public boolean isIntCastableFrom(Class<?> srcClass);
-    public boolean isLongCastableFrom(Class<?> srcClass);
-    public boolean isFloatCastableFrom(Class<?> srcClass);
-    public boolean isDoubleCastableFrom(Class<?> srcClass);
-    public boolean isEnumCastableFrom(Class<?> srcClass);
-    public boolean isStringCastableFrom(Class<?> srcClass);
-    public boolean isDateCastableFrom(Class<?> srcClass);
-    public boolean isBigNumberCastableFrom(Class<?> srcClass);
-    public boolean isCustomCastableFrom(Class<?> srcClass);
+    public static boolean isWrapDouble(Class<?> clazz) {
+        return Double.class.equals(clazz);
+    }
+
+    public static boolean isEnum(Class<?> clazz) {
+        return clazz == null ? false : clazz.isEnum();
+    }
+
+    public static boolean isBasicType(Class<?> clazz) {
+        return isBoolean(clazz) || isByte(clazz) || isChar(clazz) || isShort(clazz) ||
+                isInt(clazz) || isLong(clazz) || isFloat(clazz) || isDouble(clazz);
+    }
+
+    public static boolean isWrapClass(Class<?> clazz) { //是否为基础类型包装类
+        return isWrapBoolean(clazz) || isWrapByte(clazz) || isWrapChar(clazz) || isWrapShort(clazz) ||
+                isWrapInt(clazz) || isWrapLong(clazz) || isWrapFloat(clazz) || isWrapDouble(clazz);
+    }
+
+    public static boolean isBasicOrWrapType(Class<?> clazz) {
+        return isBoolean(clazz) || isByte(clazz) || isChar(clazz) || isShort(clazz) ||
+                isInt(clazz) || isLong(clazz) || isFloat(clazz) || isDouble(clazz) ||
+                isWrapBoolean(clazz) || isWrapByte(clazz) || isWrapChar(clazz) || isWrapShort(clazz) ||
+                isWrapInt(clazz) || isWrapLong(clazz) || isWrapFloat(clazz) || isWrapDouble(clazz);
+    }
+
+    public static boolean isString(Class<?> clazz) {
+        return String.class.equals(clazz);
+    }
+
+    public static boolean isDate(Class<?> clazz) {
+        return Date.class.equals(clazz);
+    }
+
+    public static boolean isBigDecimal(Class<?> clazz) {
+        return BigDecimal.class.equals(clazz);
+    }
+
+    public static boolean isBigInteger(Class<?> clazz) {
+        return BigInteger.class.equals(clazz);
+    }
+
+    public static boolean isBigNumber(Class<?> clazz) {
+        return (isBigDecimal(clazz) || isBigInteger(clazz));
+    }
+
+    public static boolean isArray(Class<?> clazz) {
+        return clazz == null ? false : clazz.isArray();
+    }
+
+    public static boolean isList(Class<?> clazz) {
+        if (clazz == null) {
+            return false;
+        }
+
+        try {
+            if (!isBasicType(clazz) && !isArray(clazz)) {
+                if (clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())) {
+                    if (clazz.isAssignableFrom(ArrayList.class)) {
+                        return true;
+                    }
+                } else {
+                    if (clazz.newInstance() instanceof List) { //List
+                        return true;
+                    }
+                }
+            }
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean isSet(Class<?> clazz) {
+        if (clazz == null) {
+            return false;
+        }
+
+        try {
+            if (!isBasicType(clazz) && !isArray(clazz)) {
+                if (clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())) {
+                    if (clazz.isAssignableFrom(HashSet.class)) {
+                        return true;
+                    }
+                } else {
+                    if (clazz.newInstance() instanceof Set) { //Set
+                        return true;
+                    }
+                }
+            }
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean isMap(Class<?> clazz) {
+        if (clazz == null) {
+            return false;
+        }
+
+        try {
+            if (!isBasicType(clazz) && !isArray(clazz)) {
+                if (clazz.isInterface() || Modifier.isAbstract(clazz.getModifiers())) {
+                    if (clazz.isAssignableFrom(HashMap.class)) {
+                        return true;
+                    }
+                } else {
+                    if (clazz.newInstance() instanceof Map) { //Map
+                        return true;
+                    }
+                }
+            }
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static boolean isCollection(Class<?> clazz) {
+        return isArray(clazz) || isList(clazz) || isSet(clazz) || isMap(clazz);
+    }
+
+    public static boolean isCustom(Class<?> clazz) {
+        return !(isBasicOrWrapType(clazz) || isString(clazz) || isEnum(clazz) || isDate(clazz) ||
+                isBigNumber(clazz) || isCollection(clazz));
+    }
+
 }
