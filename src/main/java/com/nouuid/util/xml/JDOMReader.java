@@ -10,7 +10,7 @@ import org.jdom2.input.SAXBuilder;
 /**
  * JDOM实现方法
  * 基于树型结构，利用纯JAVA的技术对XML文档实现解析、生成、序列化以及多种操作。
- * Created by bl07637 on 2015/4/30.
+ * Created by nouuid on 2015/4/30.
  */
 public class JDOMReader {
     public void test(File file) {

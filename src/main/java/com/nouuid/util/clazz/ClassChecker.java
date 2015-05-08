@@ -13,7 +13,7 @@ import java.util.*;
  */
 public class ClassChecker {
 
-    protected final Log logger = LogFactory.getLog(getClass());
+    public static final Log logger = LogFactory.getLog(ClassChecker.class);
 
     public static boolean isBoolean(Class<?> clazz) {
         return boolean.class.equals(clazz);
@@ -80,7 +80,7 @@ public class ClassChecker {
     }
 
     public static boolean isEnum(Class<?> clazz) {
-        return clazz == null ? false : clazz.isEnum();
+        return clazz != null && clazz.isEnum();
     }
 
     public static boolean isBasicType(Class<?> clazz) {
@@ -121,7 +121,7 @@ public class ClassChecker {
     }
 
     public static boolean isArray(Class<?> clazz) {
-        return clazz == null ? false : clazz.isArray();
+        return clazz != null && clazz.isArray();
     }
 
     public static boolean isList(Class<?> clazz) {
@@ -143,7 +143,7 @@ public class ClassChecker {
             }
 
         } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error("InstantiationException or IllegalAccessException error :", e);
         }
         return false;
     }
@@ -167,7 +167,7 @@ public class ClassChecker {
             }
 
         } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error("InstantiationException or IllegalAccessException error :", e);
         }
         return false;
     }
@@ -190,7 +190,7 @@ public class ClassChecker {
                 }
             }
         } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
+            logger.error("InstantiationException or IllegalAccessException error :", e);
         }
         return false;
     }

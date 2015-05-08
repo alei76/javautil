@@ -1,0 +1,6 @@
+05-08 08:52:53 com.nouuid.util.string.StringUtilTest.test(StringUtilTest.java:26)  ------------test-------------
+05-08 08:55:16 com.nouuid.util.string.StringUtilTest.test(StringUtilTest.java:20)  ------------hexCode() start-------------
+05-08 08:55:16 com.nouuid.util.string.StringUtilTest.test(StringUtilTest.java:23)  ------------hexCode() end-------------
+05-08 08:55:16 com.nouuid.util.string.StringUtilTest.test(StringUtilTest.java:25)  ------------hexDecode() start-------------
+05-08 08:55:16 com.nouuid.util.string.StringUtilTest.test(StringUtilTest.java:28)  ------------hexDecode() end-------------
+05-08 09:01:11 com.nouuid.util.xml.XMLTest.test(XMLTest.java:19)  filepath: /D:/Workspace/silkworm/JavaUtil/build/classes/test/xml/student.xml

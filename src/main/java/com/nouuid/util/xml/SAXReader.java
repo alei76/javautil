@@ -12,7 +12,7 @@ import org.xml.sax.helpers.DefaultHandler;
 
 /**
  * SAX实现方法：顺序模式
- * Created by bl07637 on 2015/4/30.
+ * Created by nouuid on 2015/4/30.
  */
 class MyHandler extends DefaultHandler
 {

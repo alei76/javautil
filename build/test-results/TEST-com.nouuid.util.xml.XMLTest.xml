@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.nouuid.util.xml.XMLTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2015-05-08T01:01:11" hostname="bl07637" time="0.004">
+  <properties/>
+  <testcase name="test" classname="com.nouuid.util.xml.XMLTest" time="0.004"/>
+  <system-out><![CDATA[09:01:11,577  INFO XMLTest:19 - filepath: /D:/Workspace/silkworm/JavaUtil/build/classes/test/xml/student.xml
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

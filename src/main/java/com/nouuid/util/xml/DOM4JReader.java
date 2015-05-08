@@ -3,32 +3,42 @@ package com.nouuid.util.xml;
 import java.io.File;
 import java.util.Iterator;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.dom4j.Document;
+import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
 /**
  * DOM4J实现方法
- * Created by bl07637 on 2015/4/30.
+ * Created by nouuid on 2015/4/30.
  */
 public class DOM4JReader {
-    public void test(File file) {
-        long lasting = System.currentTimeMillis();
+
+    public static final Log logger = LogFactory.getLog(DOM4JReader.class);
+
+    private SAXReader reader;
+    private Document doc;
+    private Element rootElement;
+
+    public DOM4JReader(File file) {
+        reader = new SAXReader();
         try {
-            SAXReader reader = new SAXReader();
-            Document doc = reader.read(file);
-            Element root = doc.getRootElement();
-            Element foo;
-            for (Iterator i=root.elementIterator("Student"); i.hasNext(); ) {
-                foo = (Element) i.next();
-                System.out.print("编号："+ foo.elementText("ID"));
-                System.out.print(" 姓名："+ foo.elementText("Name"));
-                System.out.println(" 性别："+ foo.elementText("Sex"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+            doc = reader.read(file);
+        } catch (DocumentException e) {
+            logger.error("", e);
         }
-        System.out.println("运行时间：" +(System.currentTimeMillis() - lasting) + "毫秒");
+        rootElement = (doc != null) ? doc.getRootElement() : null;
+    }
+
+    public Iterator getEelementIterator(String elementName) {
+        return rootElement.elementIterator("Student");
+    }
+
+
+    public void test(File file) {
+
     }
 }
 
